@@ -34,6 +34,7 @@ app.get("/", (req, res) => {
   res.json({
     status: "Backend is running",
     api: "/api",
+    message: "you can use frontend now",
   });
 });
 
