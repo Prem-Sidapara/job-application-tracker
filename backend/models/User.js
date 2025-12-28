@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// ✅ CORRECT async pre-save hook (NO next)
+// ✅ DO NOT USE `next` IN ASYNC HOOK
 userSchema.pre("save", async function () {
   if (!this.isModified("password")) return;
   this.password = await bcrypt.hash(this.password, 10);
