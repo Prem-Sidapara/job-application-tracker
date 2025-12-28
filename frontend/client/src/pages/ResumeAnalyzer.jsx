@@ -34,26 +34,31 @@ const ResumeAnalyzer = () => {
   return (
     <>
       <Navbar />
-      <div className="p-6 max-w-xl mx-auto">
-        <h2 className="text-xl font-bold mb-4">Resume Analyzer</h2>
+      <div className="p-6 max-w-xl mx-auto bg-gray-50 min-h-screen">
+        <h2 className="text-2xl font-semibold mb-6 text-gray-900">Resume Analyzer</h2>
 
-        <form onSubmit={handleSubmit} className="mb-4">
+        <form onSubmit={handleSubmit} className="mb-6 bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <input
             type="file"
             accept=".pdf"
             onChange={(e) => setFile(e.target.files[0])}
-            className="mb-3"
+            className="mb-4 block w-full text-sm text-gray-600
+           file:mr-4 file:py-2 file:px-4
+           file:rounded-md file:border-0
+           file:text-sm file:font-medium
+           file:bg-gray-100 file:text-gray-700
+           hover:file:bg-gray-200 cursor-pointer"
           />
-          <button className="bg-black text-white px-4 py-2">
+          <button className="bg-black text-white px-5 py-2 rounded-md hover:bg-gray-800 transition disabled:opacity-60">
             {loading ? "Analyzing..." : "Analyze"}
           </button>
         </form>
 
         {result && (
-          <div className="border p-4 rounded">
-            <p><b>Matched Skills:</b> {result.matchedSkills?.join(", ")}</p>
-            <p><b>Missing Skills:</b> {result.missingSkills?.join(", ")}</p>
-            <p><b>Match Score:</b> {result.score}%</p>
+          <div className="bg-white border border-gray-200 p-5 rounded-lg shadow-sm">
+            <p className="mb-2 text-gray-700"><b className="text-pink-900">Matched Skills:</b> {result.matchedSkills?.join(", ")}</p>
+            <p className="mb-2 text-gray-700"><b className="text-pink-900">Missing Skills:</b> {result.missingSkills?.join(", ")}</p>
+            <p className="mb-2 text-gray-700"><b className="text-pink-900">Match Score:</b> {result.score}%</p>
           </div>
         )}
       </div>

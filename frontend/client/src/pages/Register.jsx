@@ -25,14 +25,14 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <form className="w-80 bg-white p-6 rounded shadow" onSubmit={handleSubmit}>
-        <h2 className="text-xl font-bold mb-4">Register</h2>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <form className="w-80 bg-white p-6 rounded-lg shadow-md border border-gray-200" onSubmit={handleSubmit}>
+        <h2 className="text-2xl font-semibold mb-6 text-center text-gray-900">Register</h2>
 
         <input
           type="text"
           placeholder="Name"
-          className="w-full border p-2 mb-3"
+          className="w-full border border-gray-300 rounded-md px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-black"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
@@ -42,7 +42,7 @@ const Register = () => {
         <input
           type="email"
           placeholder="Email"
-          className="w-full border p-2 mb-3"
+          className="w-full border border-gray-300 rounded-md px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-black"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -51,13 +51,13 @@ const Register = () => {
         <input
           type="password"
           placeholder="Password"
-          className="w-full border p-2 mb-4"
+          className="w-full border border-gray-300 rounded-md px-3 py-2 mb-5 focus:outline-none focus:ring-2 focus:ring-black"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
 
-        <button className="w-full bg-black text-white p-2">
+        <button className="w-full bg-black text-white py-2 rounded-md hover:bg-gray-800 transition font-medium">
           Register
         </button>
       </form>

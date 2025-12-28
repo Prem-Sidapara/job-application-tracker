@@ -15,7 +15,7 @@ const Dashboard = () => {
   return (
     <>
       <Navbar />
-      <div className="p-6 grid grid-cols-2 md:grid-cols-4 gap-6 bg-gray-50 w-70 min-h-screen">
+      <div className="p-6 grid grid-cols-2 md:grid-cols-2 gap-6 bg-gray-400">
         <Stat title="Applied" count={countByStatus("Applied")} />
         <Stat title="Interview" count={countByStatus("Interview")} />
         <Stat title="Offer" count={countByStatus("Offer")} />
