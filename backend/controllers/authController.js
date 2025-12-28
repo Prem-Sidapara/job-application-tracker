@@ -10,45 +10,41 @@ const generateToken = (id) => {
 
 // REGISTER
 const registerUser = async (req, res) => {
+  const { name, email, password } = req.body;
+
   try {
-    console.log("REQ BODY:", req.body);
-
-    const { name, email, password } = req.body;
-
-    // validation
     if (!name || !email || !password) {
       return res.status(400).json({ message: "All fields required" });
     }
 
-    // check existing user
     const userExists = await User.findOne({ email });
     if (userExists) {
       return res.status(400).json({ message: "User already exists" });
     }
 
-    // create user
-    const user = await User.create({
+    const user = new User({
       name,
       email,
       password,
     });
 
+    await user.save(); // 👈 explicitly save
+
     return res.status(201).json({
-      _id: user._id,
-      email: user.email,
+      message: "User registered successfully",
       token: generateToken(user._id),
     });
   } catch (error) {
-    console.error(error);
-    return res.status(400).json({ message: error.message });
+    console.error("REGISTER ERROR:", error);
+    return res.status(500).json({ message: "Server error" });
   }
 };
 
 // LOGIN
 const loginUser = async (req, res) => {
-  try {
-    const { email, password } = req.body;
+  const { email, password } = req.body;
 
+  try {
     if (!email || !password) {
       return res.status(400).json({ message: "All fields required" });
     }
@@ -64,12 +60,11 @@ const loginUser = async (req, res) => {
     }
 
     return res.json({
-      _id: user._id,
-      email: user.email,
       token: generateToken(user._id),
     });
   } catch (error) {
-    return res.status(400).json({ message: error.message });
+    console.error("LOGIN ERROR:", error);
+    return res.status(500).json({ message: "Server error" });
   }
 };
 
