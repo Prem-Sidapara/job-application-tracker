@@ -11,6 +11,8 @@ const generateToken = (id) => {
 // REGISTER
 const registerUser = async (req, res) => {
   try {
+    console.log("REQ BODY:", req.body);
+
     const { name, email, password } = req.body;
 
     // validation
