@@ -30,6 +30,12 @@ app.use("/api/resume", resumeRoutes);
 app.get("/health", (req, res) => {
   res.json({ status: "ok" });
 });
+app.get("/", (req, res) => {
+  res.json({
+    status: "Backend is running",
+    api: "/api",
+  });
+});
 
 /* ========= DB ========= */
 mongoose
