@@ -11,7 +11,14 @@ const resumeRoutes = require("./routes/resumeRoutes");
 const app = express();
 
 /* ========= CORS (DEV SAFE MODE) ========= */
-app.use(cors()); // 🔥 THIS IS THE KEY
+// app.use(cors()); // 🔥 THIS IS THE KEY
+app.use(
+  cors({
+    origin: "*",
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 /* ========= ROUTES ========= */
