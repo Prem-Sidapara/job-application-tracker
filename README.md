@@ -1,3 +1,10 @@
+## 🔗 Live Demo
+
+- **Frontend (Netlify):** https://job-application-tracker-peky.netlify.app  
+- **Backend (Render):** https://job-application-tracker-peky.onrender.com
+
+---
+
 # Job Application Tracker 🚀
 
 A full-stack web application to track job applications, manage their status, and analyze resumes using keyword matching.
@@ -6,12 +13,6 @@ Live project built with **MERN stack** and deployed using **Netlify + Render + M
 
 ---
 
-## 🔗 Live Demo
-
-- **Frontend (Netlify):** https://job-application-tracker-peky.netlify.app  
-- **Backend (Render):** https://job-application-tracker-peky.onrender.com
-
----
 
 ## ✨ Features
 
