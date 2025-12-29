@@ -37,10 +37,21 @@ console.log("REGISTER BODY:", req.body);
       message: "User registered successfully",
       token: generateToken(user._id),
     });
-  } catch (error) {
-    console.error("REGISTER ERROR:", error);
-    return res.status(400).json({ message: error.meassage });
+  }  catch (error) {
+  console.error("REGISTER ERROR:", error);
+
+  // Duplicate email error
+  if (error.code === 11000) {
+    return res.status(400).json({
+      message: "Email already registered",
+    });
   }
+
+  return res.status(400).json({
+    message: error.message || "Registration failed",
+  });
+}
+
 };
 
 // LOGIN
