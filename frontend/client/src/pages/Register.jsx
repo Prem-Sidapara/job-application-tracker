@@ -19,9 +19,9 @@ const Register = () => {
       });
 
       navigate("/login");
-    }  catch (err) {
-  console.log("REGISTER ERROR:", err.response?.data || err.message);
-  alert(JSON.stringify(err.response?.data));
+    } catch (err) {
+  console.log("REGISTER ERROR:", err.response?.data);
+  alert(err.response?.data?.message || "Registration failed");
 }
 
   };
