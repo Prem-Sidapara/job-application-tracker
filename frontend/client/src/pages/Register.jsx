@@ -19,10 +19,16 @@ const Register = () => {
       });
 
       navigate("/login");
-    } catch (err) {
-  console.log("REGISTER ERROR:", err.response?.data);
-  alert(err.response?.data?.message || "Registration failed");
-}
+    }  catch (err) {
+        console.log("REGISTER ERROR FULL:", err);
+        console.log("REGISTER ERROR DATA:", err.response?.data);
+        alert(
+          err.response?.data?.message ||
+          err.response?.data?.error ||
+          "Registration failed (no message)"
+        );
+    }
+
 
   };
 

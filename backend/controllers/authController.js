@@ -10,6 +10,9 @@ const generateToken = (id) => {
 
 // REGISTER
 const registerUser = async (req, res) => {
+  console.log("REGISTER HIT");
+console.log("REGISTER BODY:", req.body);
+
   const { name, email, password } = req.body;
 
   try {
@@ -36,7 +39,7 @@ const registerUser = async (req, res) => {
     });
   } catch (error) {
     console.error("REGISTER ERROR:", error);
-    return res.status(500).json({ message: "Server error" });
+    return res.status(400).json({ message: error.meassage });
   }
 };
 
