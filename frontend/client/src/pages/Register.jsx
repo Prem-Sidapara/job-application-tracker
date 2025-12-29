@@ -24,8 +24,7 @@ const Register = () => {
         console.log("REGISTER ERROR DATA:", err.response?.data);
         alert(
           err.response?.data?.message ||
-          err.response?.data?.error ||
-          "Registration failed (no message)"
+          err.response?.data?.error 
         );
     }
 
